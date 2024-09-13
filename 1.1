@@ -1,0 +1,17 @@
+#P é a identidade e qual produto
+P = input('Cadastre um produto:')
+#E é o estoque e quantidade
+E = input('Qual a quantidade deste produto?:')
+#L é a localização do produto
+L = input('Onde será estocado o produto?:')
+print(f'Estará sendo armazenado {E} itens de {P} no armário {L}.')
+resultado = input('Se está correto, responda sim ou não:')
+if resultado == 'sim':
+  sim = 1
+  não = 0
+#resultado = int (resultado)
+while resultado != 'nao':
+  if resultado == 1:
+    print ('Produto armazenado')
+  elif resultado == 0:
+    print ('Por favor, preencha novamente')
