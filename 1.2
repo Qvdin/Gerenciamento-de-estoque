@@ -1,0 +1,11 @@
+#basicamente o resultado é parecido com o outro, mas aqui estou usando classes
+class objeto:
+  def __init__(self, nome, quantidade, localizacao):
+    self.nome = nome
+    self.quantidade = quantidade
+    self.localizacao = localizacao
+  def imprimir(self):
+    print(f'Estará sendo armazenado {self.quantidade} itens de {self.nome} no armário {self.localizacao}.')
+
+objeto1 = objeto (input('Cadastre um produto:'), input('Qual a quantidade deste produto?:'), input('Onde será estocado o produto?:'))
+objeto1.imprimir()
