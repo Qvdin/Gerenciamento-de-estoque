@@ -1,0 +1,67 @@
+import pandas as pd
+import numpy as np
+#NO FUTURO USAREI
+
+-----------------------------------------------------
+
+import sqlite3 as sql
+
+conn = sql.connect('banco_de_dados.db')
+cursor = conn.cursor()
+
+create_table = '''
+    CREATE TABLE IF NOT EXISTS produtos (
+        id INTEGER PRIMARY KEY AUTOINCREMENT,
+        nome TEXT,
+        quantidade REAL,
+        localizacao INTEGER
+    );
+'''
+
+cursor.execute(create_table)
+
+conn.commit()
+conn.close()
+
+-----------------------------------------------------
+
+import matplotlib.pyplot as plt
+import sqlite3 as sql
+
+class objeto:
+  def __init__(self, nome, quantidade, localizacao):
+    self.nome = nome
+    self.quantidade = quantidade
+    self.localizacao = localizacao
+  def imprimir(self):
+    print(f'Estará sendo armazenado {self.quantidade} itens de {self.nome} no armário {self.localizacao}.')
+
+objeto1 = objeto (input('Cadastre um produto:'), input('Qual a quantidade deste produto?:'), input('Onde será estocado o produto?:'))
+objeto1.imprimir()
+
+#O FOCO É TENTAR UNIR O UTIL AO AGRADAVEL, E TENTAR FAZER O SQL SE UNIR AS CLASSES DE OBJETOS
+
+conn = sqlite3.connect('banco_de_dados.db')
+cursor = conn.cursor()
+
+#novo_produto = (objeto1.nome, objeto1.quantidade, objeto1.localizacao) #caso tire o hashtag, sempre q rodar o programa, vai adicionar um produto
+
+inserir_produto = 'INSERT INTO produtos (nome, quantidade, localizacao) VALUES (?, ?, ?)'
+cursor.execute(inserir_produto, novo_produto)
+
+conn.commit()
+conn.close()
+
+---------------------------------------------
+
+conn = sqlite3.connect('banco_de_dados.db')
+cursor = conn.cursor()
+
+selecionar_produtos = 'SELECT * FROM produtos'
+cursor.execute (selecionar_produtos)
+
+produtos = cursor.fetchall()
+for produto in produtos:
+    print(produto)
+
+conn.close()
